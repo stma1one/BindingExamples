@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BindingExamples.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  Grid 1  -->
+    <Grid
+        Margin="25"
+        Padding="15"
+        ColumnDefinitions="*,*"
+        ColumnSpacing="3"
+        HorizontalOptions="Center"
+        RowDefinitions="*,*"
+        RowSpacing="3">
+
+        <Label HorizontalOptions="Center" Text="טקסט דוגמה" />
+        <Slider
+            x:Name="slider"
+            Grid.Row="1"
+            Maximum="360"
+            Minimum="1"
+            Value="1" />
+
+    </Grid>
+
+
+
+</ContentPage>
