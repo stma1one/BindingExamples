@@ -2,7 +2,9 @@
 <ContentPage
     x:Class="BindingExamples.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BindingExamples"
+    x:DataType="local:MainPage">
 
     <!--  Grid 1  -->
     <Grid
@@ -14,7 +16,10 @@
         RowDefinitions="*,*"
         RowSpacing="3">
 
-        <Label HorizontalOptions="Center" Text="טקסט דוגמה" />
+        <Label
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Text="{Binding P.Age, StringFormat='{0:N0}'}" />
         <Slider
             x:Name="slider"
             Grid.Row="1"
