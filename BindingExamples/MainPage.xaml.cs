@@ -1,9 +1,9 @@
-﻿using BindingExamples.Modals;
+﻿
 namespace BindingExamples;
 
 public partial class MainPage : ContentPage
 {
-	
+
 	
 
 
