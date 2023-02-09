@@ -5,39 +5,122 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
+    <ScrollView>
+        <StackLayout>
+            <!--  Grid 1 - הורשה של קישוריות  -->
+            <Grid
+                Margin="25"
+                Padding="15"
+                BindingContext="{x:Reference slider}"
+                ColumnDefinitions="*"
+                RowDefinitions="*,*,*"
+                RowSpacing="2">
+
+                <Label
+                    x:Name="kuku"
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Rotation="{Binding Value}"
+                    Text="יא 2"
+                    TextColor="Green" />
 
 
-    <!--  Grid 1  -->
-    <Grid
-        Margin="25"
-        Padding="15"
-        ColumnDefinitions="*"
-        ColumnSpacing="2"
-        RowDefinitions="*,*,*"
-        RowSpacing="2">
+                <Slider
+                    x:Name="slider"
+                    Grid.Row="1"
+                    Maximum="360"
+                    MaximumTrackColor="Red"
+                    Minimum="0"
+                    MinimumTrackColor="Green"
+                    ThumbColor="Brown"
+                    Value="50" />
+                <Label
+                    Grid.Row="1"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Value, StringFormat='{0:F0}'}"
+                    VerticalTextAlignment="End" />
 
-        <Label
-            x:Name="kuku"
-            FontSize="Title"
-            HorizontalOptions="Center"
-            Text="יא 2" />
-
-
-        <Slider
-            x:Name="slider"
-            Grid.Row="1"
-            Maximum="360"
-            Minimum="1" />
-        <Label
-            Grid.Row="1"
-            FontSize="Large"
-            HorizontalTextAlignment="Center"
-            Text=""
-            VerticalTextAlignment="End" />
+            </Grid>
 
 
-    </Grid>
+            <!--  Grid 2 * הלייבל הוא היעד והמקור לנתונים הוא סליידר  -->
+
+            <Grid
+                Margin="25"
+                Padding="15"
+                ColumnDefinitions="*"
+                RowDefinitions="*,*,*"
+                RowSpacing="2">
+
+                <Label
+                    x:Name="kiki"
+                    BindingContext="{x:Reference kiki_slider}"
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Rotation="{Binding Value}"
+                    Text="יא 2"
+                    TextColor="Green" />
 
 
+                <Slider
+                    x:Name="kiki_slider"
+                    Grid.Row="1"
+                    Maximum="360"
+                    MaximumTrackColor="Red"
+                    Minimum="0"
+                    MinimumTrackColor="Green"
+                    ThumbColor="Brown"
+                    Value="50" />
+
+                <Label
+                    Grid.Row="1"
+                    BindingContext="{x:Reference kiki_slider}"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Value, StringFormat='{0:F0}'}"
+                    VerticalTextAlignment="End" />
+
+
+            </Grid>
+
+            <!--  Grid 3 כאשר כמה פקדים ישפיעו על פקד ספציפי היעד ישפיע על המקור  -->
+            <Grid
+                Margin="25"
+                Padding="15"
+                ColumnDefinitions="*"
+                RowDefinitions="*,*,*"
+                RowSpacing="2">
+
+                <Label
+                    x:Name="fooLbl"
+                    FontSize="Title"
+                    HorizontalOptions="Center"
+                    Rotation="{Binding Value}"
+                    Text="דוגמה 3"
+                    TextColor="Green" />
+                <Slider
+                    x:Name="rotation_slider"
+                    Grid.Row="1"
+                    BindingContext="{x:Reference fooLbl}"
+                    Maximum="360"
+                    MaximumTrackColor="Red"
+                    Minimum="0"
+                    MinimumTrackColor="Green"
+                    ThumbColor="Brown"
+                    Value="{Binding Rotation, Mode=TwoWay}" />
+
+                <Slider
+                    x:Name="fontSize_slider"
+                    Grid.Row="2"
+                    Maximum="360"
+                    MaximumTrackColor="Red"
+                    Minimum="0"
+                    MinimumTrackColor="Green"
+                    ThumbColor="Brown"
+                    Value="{Binding Source={x:Reference fooLbl}, Path=FontSize, Mode=TwoWay}" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>
